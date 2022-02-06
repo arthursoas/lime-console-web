@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './assets/css/App.css';
 import Lime, { ClientChannel } from 'lime-js';
 import WebSocketTransport from 'lime-transport-websocket';
+import { Console } from './pages/console';
 
 export const App: React.FC = () => {
   const limeTransport = new WebSocketTransport(false);
@@ -21,20 +22,8 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p onClick={() => sendNewCommand()}>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Console></Console>
     </div>
   );
 }
