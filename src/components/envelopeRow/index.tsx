@@ -1,10 +1,7 @@
-import { Command, Message, Session, Notification } from "lime-js";
 import React from "react";
+import { Envelope } from "../../interfaces/envelope";
 
-interface EnvelopeRowProps {
-  direction: 'sent' | 'received',
-  content: Command | Session | Message | Notification,
-}
+interface EnvelopeRowProps extends Envelope {}
 
 export const EnvelopeRow: React.FC<EnvelopeRowProps> = ({ direction, content }) => {
   return (

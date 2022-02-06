@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Command, Message, Notification, Session } from 'lime-js';
 import { Table } from 'react-bootstrap';
 import { EnvelopeRow } from '../envelopeRow'
+import { Envelope } from '../../interfaces/envelope';
 
 interface EnvelopesTableProps {
   envelopes: Envelope[];
-}
-
-interface Envelope {
-  direction: 'sent' | 'received',
-  content: Command | Session | Message | Notification,
 }
 
 export const EnvelopesTable: React.FC<EnvelopesTableProps> = ({ envelopes }) => {
@@ -25,7 +20,7 @@ export const EnvelopesTable: React.FC<EnvelopesTableProps> = ({ envelopes }) => 
         </EnvelopeRow>
       ))
     )
-  }, envelopes)
+  }, [envelopes])
 
   return (
     <Table striped bordered hover variant="dark">

@@ -13,6 +13,12 @@ input {
   border-color: #6C757D !important;
 }
 
+textarea {
+  background-color: black !important;
+  color:#EEEEEE !important;
+  border-color: #6C757D !important;
+}
+
 label {
   color:#EEEEEE !important;
 }

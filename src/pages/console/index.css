@@ -1,3 +1,7 @@
 #connect-button {
   margin-right: 0.75rem;
 }
+
+#envelope-input {
+  font-family: 'Courier New', Courier, monospace;
+}
