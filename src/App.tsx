@@ -1,13 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './assets/css/App.css';
+import Lime, { ClientChannel } from 'lime-js';
+import WebSocketTransport from 'lime-transport-websocket';
 
-function App() {
+export const App: React.FC = () => {
+  const limeTransport = new WebSocketTransport(false);
+  const serverUri = 'wss://ws.msging.net:443';
+
+  const [ clientchannel, setClientChannel ] = useState<ClientChannel>();
+
+  useEffect(() => {
+    limeTransport.open(serverUri);
+    setClientChannel(new ClientChannel(limeTransport))
+  }, [])
+
+  const sendNewCommand = () => {
+    clientchannel?.sendSession({
+      state: 'new'
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p onClick={() => sendNewCommand()}>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
