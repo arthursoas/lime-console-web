@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import Lime, { ClientChannel } from 'lime-js';
+import { ClientChannel } from 'lime-js';
 import WebSocketTransport from 'lime-transport-websocket';
 
 interface LimeProtocolContextData {
@@ -18,7 +18,7 @@ export const useLimeProtocol = (): LimeProtocolContextData => {
 
 export const LimeProtocolProvider: React.FC = ({ children }) => {
   const [ limeTransport ] = useState<any>(new WebSocketTransport(false));
-  const [ clientchannel, setClientChannel ] = useState<ClientChannel>();
+  const [ , setClientChannel ] = useState<ClientChannel>();
 
   const openConnection = (serverUri: string) => {
     limeTransport.open(serverUri);

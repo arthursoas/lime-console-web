@@ -9,6 +9,7 @@ import {
   Button,
 } from 'react-bootstrap';
 import { useLimeProtocol } from '../../hooks/useLimeProtocol';
+import { EnvelopesTable } from '../../components/envelopesTable';
 
 export const Console: React.FC = () => {
   const [ clientOpened, setClientOpened ] = useState<boolean>(false);
@@ -28,7 +29,7 @@ export const Console: React.FC = () => {
 
   return (
     <Container fluid>
-      <Row>
+      <Row className="mb2">
         <Col xs="auto" className="flex pa0 mb2">
           <Form.Label className="flex ma0 items-center"><b>Host</b></Form.Label>
         </Col>
@@ -54,6 +55,10 @@ export const Console: React.FC = () => {
               Disconnect
           </Button>
         </Col>
+      </Row>
+
+      <Row>
+        <EnvelopesTable envelopes={[]}></EnvelopesTable>
       </Row>
     </Container>
   )
